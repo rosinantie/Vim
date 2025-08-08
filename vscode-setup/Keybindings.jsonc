@@ -1,4 +1,3 @@
-// Place your key bindings in this file to override the defaults
 [
   // NAVIGATION
   {
@@ -25,14 +24,15 @@
     "command": "workbench.action.terminal.kill",
     "when": "terminalFocus"
   },
+
   // FILE TREE
   {
-    "command": "workbench.action.toggleSidebarVisibility",
-    "key": "ctrl+e"
+    "key": "ctrl+e",
+    "command": "workbench.action.toggleSidebarVisibility"
   },
   {
-    "command": "workbench.files.action.focusFilesExplorer",
     "key": "ctrl+e",
+    "command": "workbench.files.action.focusFilesExplorer",
     "when": "editorTextFocus"
   },
   {
@@ -41,8 +41,8 @@
     "when": "filesExplorerFocus && !inputFocus"
   },
   {
-    "command": "renameFile",
     "key": "r",
+    "command": "renameFile",
     "when": "filesExplorerFocus && !inputFocus"
   },
   {
@@ -51,14 +51,28 @@
     "when": "explorerViewletFocus"
   },
   {
-    "key": "shift+n",
-    "command": "workbench.action.newWindow",
-    "when": "!explorerViewletFocus"
+    "key": "d",
+    "command": "deleteFile",
+    "when": "filesExplorerFocus && !inputFocus"
+  },
+
+  // ✅ Key bindings to handle file/folder toggle
+  {
+    "key": "enter",
+    "command": "list.select",
+    "when": "explorerViewletFocus && !inputFocus"
   },
   {
-    "command": "deleteFile",
-    "key": "d",
-    "when": "filesExplorerFocus && !inputFocus"
+    "key": "space",
+    "command": "list.select",
+    "when": "explorerViewletFocus && !inputFocus"
+  },
+
+  // ✅ For VSCodeVim: open explorer from Normal mode with <space>e
+  {
+    "key": "space e",
+    "command": "workbench.view.explorer",
+    "when": "editorTextFocus && vim.mode == 'Normal'"
   },
 
   // EXTRA
@@ -69,5 +83,11 @@
   {
     "key": "ctrl+z",
     "command": "workbench.action.toggleZenMode"
+  },
+
+  {
+    "key": "ctrl+r",
+    "command": "workbench.action.debug.run",
+    "when": "editorLangId == java && editorTextFocus"
   }
 ]
